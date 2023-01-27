@@ -48,6 +48,7 @@ public class InputHelper {
     //     return num;
     // }
 
+    //returns the coordinates of the given number letter pair and makes sure the right format is given
     public int[] getChessLocation(String prompt){
         System.out.println(prompt);
         String input = myScanner.nextLine();

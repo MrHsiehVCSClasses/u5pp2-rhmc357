@@ -60,14 +60,15 @@ public class Chess {
         boolean blackHasKing;
         for (int row = 0; row < board.length; row ++){
             for(int col = 0; col < board[row].length; col++){
-                if (board[row][col] == 'K'){
+                if (board[row][col] == ChessPiece.King){
                     whiteHasKing = true;
                 }
-                if (board[row][col] == 'k'){
+                if (board[row][col] == King){
                     blackHasKing = true;
                 }
             }
         }
+        //returns the winner
         if (whiteHasKing == true && blackHasKing == true || whiteHasKing == false && blackHasKing == false){
             return 0;
         }

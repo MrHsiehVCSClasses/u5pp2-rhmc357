@@ -1,6 +1,7 @@
 package u5pp;
 
 public class ChessPiece {
+    //creates veriables
     ChessPiece[][] board; 
     int row;
     int col;
@@ -8,6 +9,7 @@ public class ChessPiece {
     boolean hasMoved;
 
     public ChessPiece(ChessPiece[][] board, int row, int col, boolean isWhite){
+        //sets the values of the variables
         this.board = board;
         this.row = row;
         this.col = col;
@@ -29,6 +31,7 @@ public class ChessPiece {
     public boolean canMoveTo(int row, int col){
         return true;
     }
+    //moves to the specified space
     public void moveTo(int row, int col){
         ChessPiece temp = board [getRow()][getColumn()];
         board [getRow()][getColumn()] = null;

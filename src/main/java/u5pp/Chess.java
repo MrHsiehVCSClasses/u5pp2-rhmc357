@@ -52,4 +52,31 @@ public class Chess {
         
     }
 
+    void play(Scanner scanner){
+
+    }
+    int getWinner(ChessPiece[][] board){
+        boolean whiteHasKing;
+        boolean blackHasKing;
+        for (int row = 0; row < board.length; row ++){
+            for(int col = 0; col < board[row].length; col++){
+                if (board[row][col] == 'K'){
+                    whiteHasKing = true;
+                }
+                if (board[row][col] == 'k'){
+                    blackHasKing = true;
+                }
+            }
+        }
+        if (whiteHasKing == true && blackHasKing == true || whiteHasKing == false && blackHasKing == false){
+            return 0;
+        }
+        else if(whiteHasKing == true){
+            return 1;
+        }
+        else{
+            return -1;
+        }
+    }
+
 }

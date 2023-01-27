@@ -20,9 +20,11 @@ public class Bishop extends ChessPiece {
         //     return false;
         // }
         if (getRow() == row || getColumn() == col){
+            System.out.println(false);
             return false;
         }
         if (board[row][col] != null && board[row][col].getIsWhite() != isWhite ){
+            System.out.println(false);
             return false;
         }
         int rt = 1;
@@ -33,13 +35,51 @@ public class Bishop extends ChessPiece {
         if (getColumn() > col){
             ct = -1;
         }
-        for (int cr = getRow(); cr < row; cr = cr + rt){
-            System.out.println("current row: " + cr + "row tracker: " + rt);
-            for (int cc = getColumn(); cc < col; cc = cc + ct){
-                System.out.println("current col: " + cc + "col tracker: " + ct);
-                if (board[cr][cc] != null){
-                    System.out.println(false);
-                    return false;
+        if (getRow() < row && getColumn()<col){
+            for (int cr = getRow(); cr < row; cr = cr + rt){
+                System.out.println("current row: " + cr + "row tracker: " + rt);
+                for (int cc = getColumn(); cc < col; cc = cc + ct){
+                    System.out.println("current col: " + cc + "col tracker: " + ct);
+                    if (board[cr][cc] != null){
+                        System.out.println(false);
+                        return false;
+                    }
+                }
+            }
+        }
+        if (getRow() > row && getColumn()>col){
+            for (int cr = getRow(); cr > row; cr = cr + rt){
+                System.out.println("current row: " + cr + "row tracker: " + rt);
+                for (int cc = getColumn(); cc > col; cc = cc + ct){
+                    System.out.println("current col: " + cc + "col tracker: " + ct);
+                    if (board[cr][cc] != null){
+                        System.out.println(false);
+                        return false;
+                    }
+                }
+            }
+        }
+        if (getRow() > row && getColumn()<col){
+            for (int cr = getRow(); cr > row; cr = cr + rt){
+                System.out.println("current row: " + cr + "row tracker: " + rt);
+                for (int cc = getColumn(); cc < col; cc = cc + ct){
+                    System.out.println("current col: " + cc + "col tracker: " + ct);
+                    if (board[cr][cc] != null){
+                        System.out.println(false);
+                        return false;
+                    }
+                }
+            }
+        }
+        if (getRow() < row && getColumn()>col){
+            for (int cr = getRow(); cr < row; cr = cr + rt){
+                System.out.println("current row: " + cr + "row tracker: " + rt);
+                for (int cc = getColumn(); cc > col; cc = cc + ct){
+                    System.out.println("current col: " + cc + "col tracker: " + ct);
+                    if (board[cr][cc] != null){
+                        System.out.println(false);
+                        return false;
+                    }
                 }
             }
         }

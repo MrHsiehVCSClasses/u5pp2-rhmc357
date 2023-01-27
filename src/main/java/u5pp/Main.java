@@ -20,6 +20,6 @@ public class Main {
         //                             ;
         ChessPiece[][] board = new ChessPiece[8][8];
         board[5][5] = new Bishop(board, 5, 5, true);
-        board[5][5].canMoveTo(0,2);
+        board[5][5].canMoveTo(5,1);
     }
 }

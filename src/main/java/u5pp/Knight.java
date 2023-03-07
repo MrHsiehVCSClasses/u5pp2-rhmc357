@@ -15,16 +15,23 @@ public class Knight extends ChessPiece {
             return false;
         }
         //not moving onto one of its own guys
-        if (getIsWhite() == isWhite){
+        if ((board[row][col] != null) && getIsWhite() == board[row][col].getIsWhite()){
+            System.out.println(false + "moving onto own person");
             return false;
         }
-        //check if it is stealing 
-        if (board[row][col] != null || board[row][col].getIsWhite() == getIsWhite()){
-            return false;
+        //Checks if it is moving to an invalid input
+        boolean valid = true;
+        if (row > this.row + 2 || row < this.row - 2 || col > this.col + 2 || col < this.col - 2){
+            valid = false;
         }
-        //moving in its L shape
-        if (getRow() + 1 == row && getColumn() + 2== col ||getRow() - 1 == row && getColumn()-2 == col ||getRow() - 1 == row && getColumn()+2 == col ||getRow() + 1 == row && getColumn()-2 == col ||getRow() + 2 == row && getColumn()+1 == col ||getRow() -2 == row && getColumn()-1 == col ||getRow() + 2 == row && getColumn()-1 == col ||getRow() -2 == row && getColumn()+1 == col ){
-            return true;
+        else if (Math.abs(getRow() - row) == Math.abs(getColumn() - col)){
+            valid = false;
+        }
+        else if (getRow() == row || getColumn() == col){
+            valid = false;
+        }
+        if (valid == false){
+            return false;
         }
         return true;
     }

@@ -55,28 +55,33 @@ public class Chess {
     void play(Scanner scanner){
 
     }
-    int getWinner(ChessPiece[][] board){
-        boolean whiteHasKing;
-        boolean blackHasKing;
+    public static int getWinner(ChessPiece[][] board){
+        boolean whiteHasKing = false;
+        boolean blackHasKing = false;
         for (int row = 0; row < board.length; row ++){
             for(int col = 0; col < board[row].length; col++){
-                if (board[row][col] == ChessPiece.King){
+                if (board[row][col] == null){
+                    continue;
+                }
+                if (board[row][col] .toString() .equals("K") ){
                     whiteHasKing = true;
                 }
-                if (board[row][col] == King){
+                if (board[row][col] .toString() .equals("k")){
                     blackHasKing = true;
                 }
+
             }
         }
         //returns the winner
-        if (whiteHasKing == true && blackHasKing == true || whiteHasKing == false && blackHasKing == false){
-            return 0;
-        }
-        else if(whiteHasKing == true){
+        
+        if(whiteHasKing == true && blackHasKing == false){
             return 1;
         }
-        else{
+        else if (blackHasKing == true && whiteHasKing == false){
             return -1;
+        }
+        else {//if (whiteHasKing == true && blackHasKing == true || whiteHasKing == false && blackHasKing == false)
+            return 0;
         }
     }
 

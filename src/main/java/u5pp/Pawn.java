@@ -4,7 +4,11 @@ public class Pawn extends ChessPiece {
     public Pawn(ChessPiece[][] board, int row, int col, boolean isWhite){
         super(board, row, col, isWhite);
     }
+    
     public boolean canMoveTo(int row, int col){
+        
+            
+        
         int wob = 1;
         boolean isTaking = false;
         if (getIsWhite() == false){
@@ -34,7 +38,9 @@ public class Pawn extends ChessPiece {
         if (hasMoved == false && getRow() + wob * 2 == row && board [row] [col] == null){
             return true;
         }
+    
         return false;
+    
     }
 
     public void moveTo(int row, int col){

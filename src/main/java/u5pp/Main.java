@@ -9,17 +9,12 @@ public class Main {
         "Welcome to the unit 5 programming project!\n"+
         "Take a look at the README, and the txt files to start\n" + 
         "Good luck!");
-        // Scanner myScanner = new Scanner(System.in);
-        // InputHelper myInputHelper = new InputHelper(myScanner);
-        // myInputHelper.getChessLocation("check");
-        // ChessPiece[][] a = new board{{R, N , B , Q , K , B , N , R}
-        //                             {P , P , P , P , P , P , P , P}
-        //                             { null, null, null, null, null, null, null, null}
-        //                             { null, null, null, null, null, null, null, null}
-        //                             }
-        //                             ;
         ChessPiece[][] board = new ChessPiece[8][8];
-        board[5][5] = new Bishop(board, 5, 5, true);
-        board[5][5].canMoveTo(5,1);
+        // board[5][5] = new Rook(board, 5, 5, true);
+        // board[4][4] = new Rook(board, 5, 7, false);
+        // board[5][5].canMoveTo(5,6);
+        board[0][0] = new King(board, 0, 0, false);
+        board[1][2] = new King(board, 1, 2, true);
+        board[0][0].canMoveTo(0, 1);
     }
 }

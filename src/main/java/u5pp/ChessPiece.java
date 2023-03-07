@@ -29,6 +29,15 @@ public class ChessPiece {
     }
 
     public boolean canMoveTo(int row, int col){
+        if (getRow() == row && getColumn() == col){
+            return false;
+        }
+        if (row < 0 || row > 7 || col < 0 || col >7){
+            return false; 
+        }
+        if (board[row][col] != null && getIsWhite() == board[row][col].getIsWhite()){
+            return false;
+        }
         return true;
     }
     //moves to the specified space
@@ -39,6 +48,7 @@ public class ChessPiece {
         hasMoved = true;
     }
     public String toString(){
-        return "Row:" + row + "column: " + col;
+        return board [row][col].toString();
+        // return "Row:" + row + "column: " + col;
     }
 }

@@ -3,20 +3,15 @@ package u5pp;
 import java.util.Scanner;
 
 public class Chess {
-
-
     /**
      * Used to print a chess board out.
      */
     public static String boardToString(ChessPiece[][] board) {
-
         String output = "";
         output += " ".repeat(3);
-
         for(int i = 0; i < 8; i++) {
             output += " " + (char)('a' + i) + "  ";
         }
-        
         output += "\n";
         output += "  " + "┌───" + "┬───".repeat(7) + "┐";
         output += "\n";
@@ -33,7 +28,6 @@ public class Chess {
             }
             output += (" " + (r+1));
             output += "\n";
-                    
             if(r == board.length-1) {
                 output += "  " + "└───" + "┴───".repeat(7) + "┘";
             } else {
@@ -41,20 +35,18 @@ public class Chess {
             }
             output += "\n";
         }
-        
         output += " ".repeat(3);
-
         for(int i = 0; i < 8; i++) {
             output += " " + (char)('a' + i) + "  ";
         }
-
         return output;
-        
     }
 
     void play(Scanner scanner){
-
+        //Nope
     }
+
+    //uses instance of to check what color has kings and if they both have a king its a tie
     public static int getWinner(ChessPiece[][] board){
         boolean whiteHasKing = false;
         boolean blackHasKing = false;
@@ -69,11 +61,9 @@ public class Chess {
                 if (board[row][col] .toString() .equals("k")){
                     blackHasKing = true;
                 }
-
             }
         }
         //returns the winner
-        
         if(whiteHasKing == true && blackHasKing == false){
             return 1;
         }
@@ -84,5 +74,4 @@ public class Chess {
             return 0;
         }
     }
-
 }

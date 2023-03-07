@@ -1,6 +1,6 @@
 package u5pp;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 public class King extends ChessPiece {
     //construstor
@@ -23,29 +23,19 @@ public class King extends ChessPiece {
             System.out.println("own color not taking");
             return false;
         }
-        // for (int r = row -1; r<row + 1 && r> row -1 && r != row; r++ ){
-        //     for (int c = col -1; c<col + 1 && c> col-1 && c != col; c++){
-        //         if (board [r][c].toString() .equals("K" )|| board [r][c].toString() .equals( "k" )){
-        //             System.out.println("nope cant with other king");
-        //             return false;
-        //         }
-        //     }
-        // }
-        // 
         //moving in the only places around it  
         if ((col > getColumn() + 1 || col < getColumn() - 1 ) || (row > getRow() + 1 || row < getRow() - 1 )){
             System.out.println("not in box");
             return false;
         }
-        
-
-        
+        //checks if there are kings in the circle around it
+        //works by itself but other tests fail when it is run 
         // if (isKingThere(row, col) == true){
         //     return false;
         // }
-        
         return true;
     }
+
     //actually moves the piece
     public void moveTo(int row, int col){
         ChessPiece temp = board [getRow()][getColumn()];
@@ -53,6 +43,7 @@ public class King extends ChessPiece {
         board [row][col] = temp;
         hasMoved = true;
     }
+
     //says if K or k
     public String toString() {
         if (isWhite == true){
@@ -62,20 +53,17 @@ public class King extends ChessPiece {
             return "k";
         }
     }
+
+    //checks if the king is in the little circle by using
+    //too many if statements but I promise its still DRY because Hsieh said to do it this way
     boolean isKingThere(int row, int col){
         if (row -1 >0 && col - 1 > 0){
-            System.out.println(board[row -1][col-1].toString());
             if (board[row -1][col-1] instanceof King){
-                    System.out.println(board[row -1][col-1].toString());
-                System.out.println("true true yayyyy");
-                    return true;
+                return true;
             }
         }
-        
         else if (row -1 >0 && col + 1 < board[0].length-1 ){
-            System.out.println(board[row -1][col-1].toString());
             if (board[row -1][col+1] instanceof King){
-                System.out.println(board[row -1][col-1].toString());
                 return true;
             }
         }
@@ -85,14 +73,7 @@ public class King extends ChessPiece {
             }
         }
         else if (row +1 <board.length-1 && col + 1 < board[0].length-1){
-            System.out.println(row +"" + col + "");
-            System.out.println(board[row +1][col+1]);
-            
-            // System.out.println("treu true yayyyyy");
             if (board[row +1][col+1] instanceof King){
-            System.out.println(board[row +1][col+1].toString());
-                
-                System.out.println("treu true yayyyyy");
                 return true;
             }
         }
@@ -106,7 +87,7 @@ public class King extends ChessPiece {
                 return true;
             }
         }
-        if (row +1 < board.length){
+        else if (row +1 < board.length){
             if (board[row +1][col] instanceof King){
                 return true;
             }
@@ -116,12 +97,10 @@ public class King extends ChessPiece {
                 return true;
             }
         }
-        
-        // System.out.println("yeah so the stuff didnt even run");
-        System.out.println("false false boooooo");
             return false;
     }
-    // ArrayList<ChessPiece> checkCircle(int row, int col){
+    // FAILED ATTEMPT AKA THE GRAVEYARD OF CODE
+    //ArrayList<ChessPiece> checkCircle(int row, int col){
     //     ArrayList<ChessPiece> pieces = new ArrayList<>();
     //     if (col - 1 >= 0){
     //         for (int i = col - 1; i <= col+1; i++){
@@ -131,7 +110,6 @@ public class King extends ChessPiece {
     //         }
     //     }
     //     if (col - 1 >= 0){
-
     //     }
     //     for (int i = col - 1; i <= col+1; i++){
     //         if (board [row +1][i] != null){

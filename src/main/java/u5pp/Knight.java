@@ -35,6 +35,7 @@ public class Knight extends ChessPiece {
         }
         return true;
     }
+
     //to string says in b or w
     public String toString() {
         if (isWhite == true){

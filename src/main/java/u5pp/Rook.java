@@ -4,21 +4,6 @@ public class Rook extends ChessPiece {
     public Rook(ChessPiece[][] board, int row, int col, boolean isWhite){
         super(board, row, col, isWhite);
     }
-    // public boolean canMoveTo(int row, int col){
-    //     //checks if in bounds
-    //     if (row < 0 || row > 7 || col < 0 || col >7){
-    //         return false; 
-    //     }
-    //     //if moving onto itslef
-    //     if (getRow() == row && getColumn() == col){
-    //         return false;
-    //     }
-    //     //if taking 
-    //     if (board[row][col] != null && board[row][col].getIsWhite() != isWhite ){
-    //         return false;
-    //     }
-    //     return true;
-    // }
 
     public boolean canMoveTo(int row, int col){
         //checks in bounds
@@ -31,7 +16,6 @@ public class Rook extends ChessPiece {
             System.out.println(false + "same space");
             return false;
         }
-        
         //check if not moving straight
         if (getRow() != row && getColumn() != col){
             System.out.println(false + "not straight move");
@@ -42,55 +26,43 @@ public class Rook extends ChessPiece {
             System.out.println(false + "moving onto own person");
             return false;
         }
+        //can only move up and down or side to side
         if (getRow() < row){
             for (int cr = getRow() +1 ; cr < row; cr++){
-                    
-                    if (board[cr][col] != null ){
-                        System.out.println(false + "for loop 1 down right");
-                        return false;
-                    }
-                
+                if (board[cr][col] != null ){
+                    System.out.println(false + "for loop 1 down right");
+                    return false;
+                }
             }
         }
         if (getRow() > row){
             for (int cr = getRow() -1; cr > row; cr --){
-                
-                
-                    
-                    if (board[cr][col] != null){
-                        System.out.println(false + "for loop 2 up left");
-                        return false;
-                    }
-                
+                if (board[cr][col] != null){
+                    System.out.println(false + "for loop 2 up left");
+                    return false;
+                }
             }
         }
         if (getColumn()<col){
-            
-                
-                for (int cc = getColumn() +1; cc < col; cc ++){
-                    
-                    if (board[row][cc] != null){
-                        System.out.println( false + "for loop 3 up right");
-                        return false;
-                    }
+            for (int cc = getColumn() +1; cc < col; cc ++){
+                if (board[row][cc] != null){
+                    System.out.println( false + "for loop 3 up right");
+                    return false;
                 }
-            
+            }
         }
         if (getColumn()>col){
-            
-                
-                for (int cc = getColumn()-1; cc > col; cc --){
-                    
-                    if (board[row][cc] != null){
-                        System.out.println(false + "for loop 4 down left");
-                        return false;
-                    }
+            for (int cc = getColumn()-1; cc > col; cc --){
+                if (board[row][cc] != null){
+                    System.out.println(false + "for loop 4 down left");
+                    return false;
                 }
-            
+            }
         }
         System.out.println(true + "end ");
         return true;
     }
+
     //print w or b
     public String toString() {
         if (isWhite == true){
@@ -100,5 +72,4 @@ public class Rook extends ChessPiece {
             return "r";
         }
     }
-
 }

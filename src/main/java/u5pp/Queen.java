@@ -5,14 +5,7 @@ public class Queen extends ChessPiece {
         super(board, row, col, isWhite);
     }
     public boolean canMoveTo(int row, int col){
-        //checks if moving to a valid spot 
-        //DOES NO WORk RN & WHY TEST FAILING
-        // if (getRow() != row && getColumn() != col){
-        //     if ((getRow() + row + getColumn() + col)% 2 != 0 ){
-                
-        //         return false;
-        //     }
-        // }
+        //if it is moving to an invalid input
         int rowMath = Math.abs(getRow()-row );
         int colMath = Math.abs(getColumn()-col);
         if (rowMath != 0 && colMath != 0 && rowMath != colMath){
@@ -33,7 +26,8 @@ public class Queen extends ChessPiece {
             System.out.println(false + "moving onto own person");
             return false;
         }
-        
+        //only can move diagonal or virticle and horizontal
+        //sry ita kinda long
         if (getRow() < row && getColumn()<col){
             for (int cr = getRow() +1 ; cr < row; cr++){
                 for (int cc = getColumn() + 1; cc < col; cc ++){
@@ -106,9 +100,10 @@ public class Queen extends ChessPiece {
                 }
             }
         }
-        
         return true;
     }
+
+    //prints Q or q
     public String toString() {
         if (isWhite == true){
             return "Q";
